@@ -15,8 +15,8 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => ucfirst(fake()->words(3, true)),
-            'slug' => fake()->slug(3),
-            'cover' => fake()->imageUrl(),
+            'slug' => fake()->unique()->slug(3),
+            'cover' => fake()->imageUrl(1510, 906),
             'content' => fake()->text(),
             'link' => fake()->url(),
             'user_id' => User::inRandomOrder()->value('id'),
