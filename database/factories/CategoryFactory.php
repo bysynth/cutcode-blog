@@ -13,8 +13,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => ucfirst(fake()->words(2, true)),
-            'slug' => fake()->slug(2),
+            'name' => ucfirst(fake()->unique()->words(2, true)),
+            'slug' => fake()->unique()->slug(2),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
