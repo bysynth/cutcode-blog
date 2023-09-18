@@ -13,6 +13,8 @@ class ArticleFactory extends Factory
 
     public function definition(): array
     {
+        $dateTime = fake()->dateTimeBetween('-1 day');
+
         return [
             'title' => ucfirst(fake()->words(3, true)),
             'slug' => fake()->unique()->slug(3),
@@ -20,8 +22,8 @@ class ArticleFactory extends Factory
             'content' => fake()->text(),
             'link' => fake()->url(),
             'user_id' => User::inRandomOrder()->value('id'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'created_at' => $dateTime,
+            'updated_at' => $dateTime,
         ];
     }
 }
