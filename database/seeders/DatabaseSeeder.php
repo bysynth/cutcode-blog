@@ -16,7 +16,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)->create();
-        Category::factory(5)->create();
-        Article::factory(20)->create();
+
+        $categories = Category::factory(5)->create();
+
+        Article::factory(200)
+            ->create()
+            ->each(fn(Article $article) => $article
+                ->categories()
+                ->sync($categories->random(rand(1, 5)))
+            );
     }
 }
