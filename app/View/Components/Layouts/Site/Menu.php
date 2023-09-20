@@ -12,7 +12,7 @@ class Menu extends Component
 
     public function __construct()
     {
-        $this->menu = config('menus.site');
+        $this->menu = config('menu.site');
     }
 
     public function isActive(string $route): bool

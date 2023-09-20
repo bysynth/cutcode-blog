@@ -3,9 +3,9 @@
         @foreach($menu as $menuItem)
             <a href="{{ route($menuItem['route']) }}"
                 @class([
-                     'ml-4 mr-4 text-white',
-                     'hover:text-pink' => !$isActive($menuItem['route']),
+                     'ml-4 mr-4',
                      'text-pink' => $isActive($menuItem['route']),
+                     'text-white hover:text-pink' => !$isActive($menuItem['route']),
                  ])
             >
                 {{ $menuItem['title'] }}
