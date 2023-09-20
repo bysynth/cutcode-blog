@@ -10,6 +10,7 @@ Route::name('site.')->group(function () {
 
     Route::controller(ArticleController::class)->group(function () {
         Route::get('articles', 'index')->name('articles.index');
+        Route::get('articles/{article:slug}', 'show')->name('articles.show');
     });
 
 });

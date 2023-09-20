@@ -3,7 +3,7 @@
 namespace App\View\Components\Layouts\Site;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use Illuminate\View\Component;
 
 class Menu extends Component
@@ -17,7 +17,7 @@ class Menu extends Component
 
     public function isActive(string $route): bool
     {
-        return Route::currentRouteName() === $route;
+        return Request::routeIs($route) || Request::routeIs(str_replace('index', '*', $route));
     }
 
     public function render(): View

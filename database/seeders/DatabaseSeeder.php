@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         $categories = Category::factory(5)->create();
 
-        Article::factory(200)
+        Article::factory(30)
             ->create()
             ->each(fn(Article $article) => $article
                 ->categories()

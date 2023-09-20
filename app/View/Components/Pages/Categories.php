@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Articles;
+namespace App\View\Components\Pages;
 
 use App\Models\Category;
 use Illuminate\Contracts\View\View;
@@ -11,15 +11,15 @@ class Categories extends Component
 {
     public Collection $categories;
 
-    public function __construct()
+    public function __construct($categories = null)
     {
-        $this->categories = Category::all();
+        $this->categories = $categories ?? Category::all();
     }
 
     //TODO: сделать закрашивание выбранной категории
 
     public function render(): View
     {
-        return view('components.articles.categories');
+        return view('components.pages.categories');
     }
 }

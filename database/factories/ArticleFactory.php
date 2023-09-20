@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Article;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Carbon;
 
 class ArticleFactory extends Factory
 {
@@ -19,7 +18,7 @@ class ArticleFactory extends Factory
             'title' => ucfirst(fake()->words(3, true)),
             'slug' => fake()->unique()->slug(3),
             'cover' => fake()->imageUrl(1510, 906),
-            'content' => fake()->text(),
+            'content' => '<p>' . implode('</p><p>',fake()->paragraphs(5)) . '</p>',
             'link' => fake()->url(),
             'user_id' => User::inRandomOrder()->value('id'),
             'created_at' => $dateTime,
