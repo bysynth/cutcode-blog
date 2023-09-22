@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,6 +20,11 @@ class Article extends Model
         'link',
         'user_id',
     ];
+
+    public function scopeLatestArticlesWithCategories(Builder $query): Builder
+    {
+        return $query->with('categories:id,name,slug')->latest();
+    }
 
     public function author(): BelongsTo
     {
