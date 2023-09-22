@@ -6,7 +6,11 @@
             {{ $article->title }}
         </x-pages.title>
 
-        <x-pages.categories :categories="$article->categories"/>
+        <div class="flex flex-wrap gap-3 mt-7">
+            @foreach($article->categories as $category)
+                <x-pages.category-button :$category/>
+            @endforeach
+        </div>
 
         <div class="mt-4 break-words">
             {!! $article->content !!}
