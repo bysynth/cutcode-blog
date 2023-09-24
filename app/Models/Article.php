@@ -21,7 +21,7 @@ class Article extends Model
         'user_id',
     ];
 
-    public function scopeLatestArticlesWithCategories(Builder $query): Builder
+    public function scopeLatestWithCategories(Builder $query): Builder
     {
         return $query->with('categories:id,name,slug')->latest();
     }

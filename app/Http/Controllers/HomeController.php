@@ -11,10 +11,7 @@ class HomeController extends Controller
     public function __invoke(): View
     {
         $articles = Cache::remember('lastArticles', now()->addHours(12), function () {
-            return Article::with('categories')
-                ->latest()
-                ->take(6)
-                ->get();
+            return Article::latestWithCategories()->take(6)->get();
         });
 
         return view('home', [

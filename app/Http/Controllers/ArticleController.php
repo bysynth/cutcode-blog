@@ -12,7 +12,7 @@ class ArticleController extends Controller
     {
         return view('articles.index', [
             'categories' => Category::all(),
-            'articles' => Article::latestArticlesWithCategories()->paginate(6),
+            'articles' => Article::latestWithCategories()->paginate(6),
         ]);
     }
 
@@ -20,7 +20,7 @@ class ArticleController extends Controller
     {
         return view('articles.index', [
             'categories' => Category::all(),
-            'articles' => $category->articles()->latestArticlesWithCategories()->paginate(6)
+            'articles' => $category->articles()->latestWithCategories()->paginate(6)
         ]);
     }
 
