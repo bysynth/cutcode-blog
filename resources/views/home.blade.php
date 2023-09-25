@@ -1,4 +1,8 @@
 <x-layouts.site>
+    <x-slot:title>
+        Главная - {{ config('app.name') }}
+    </x-slot:title>
+
     <x-pages.title>
         Лучшие статьи
     </x-pages.title>

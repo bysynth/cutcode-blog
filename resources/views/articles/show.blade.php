@@ -1,4 +1,8 @@
 <x-layouts.site>
+    <x-slot:title>
+        {{ $article->title }} - {{ config('app.name') }}
+    </x-slot:title>
+
     <img class="w-full rounded-xl my-8" src="{{ $article->cover }}" alt="{{ $article->title }}">
 
     <div class="prose prose-lg min-w-full prose-img:rounded-xl prose-invert">

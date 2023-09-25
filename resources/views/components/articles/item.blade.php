@@ -1,6 +1,6 @@
 <div class="tasks-card flex flex-col rounded-3xl md:rounded-[40px] bg-card">
     <div class="tasks-card-photo overflow-hidden h-40 xs:h-48 sm:h-[280px] rounded-3xl md:rounded-[40px]">
-        <a href="{{ route('site.articles.show', $article) }}">
+        <a href="{{ route('articles.show', $article) }}">
             <img src="{{ $article->cover }}"
                  class="object-cover w-full h-full"
                  alt="{{ $article->title }}">
@@ -17,7 +17,7 @@
             </div>
 
             <div class="flex flex-wrap sm:items-center justify-center sm:justify-between mt-auto pt-8 sm:pt-10">
-                <a class="btn btn-pink" href="{{ route('site.articles.show', $article) }}">
+                <a class="btn btn-pink" href="{{ route('articles.show', $article) }}">
                     Подробнее
                 </a>
             </div>

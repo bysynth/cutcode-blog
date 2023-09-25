@@ -16,7 +16,7 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function byCategory(Category $category): View
+    public function indexByCategory(Category $category): View
     {
         return view('articles.index', [
             'categories' => Category::all(),
