@@ -26,4 +26,13 @@ class LoginController extends Controller
 
         return to_route('home');
     }
+
+    public function destroy(): RedirectResponse
+    {
+        auth()->logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        return to_route('home');
+    }
 }

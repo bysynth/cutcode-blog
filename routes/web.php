@@ -31,6 +31,11 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::delete('/logout', [LoginController::class, 'destroy'])
+        ->name('logout');
+});
+
 Route::get('/articles', [ArticleController::class, 'index'])
     ->name('articles.index');
 Route::get('/articles/{article:slug}', [ArticleController::class, 'show'])
