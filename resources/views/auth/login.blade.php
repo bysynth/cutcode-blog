@@ -16,6 +16,7 @@
                 autocomplete="email"
                 placeholder="E-mail"
                 required
+                autofocus
             />
             @error('email')
                 <x-forms.error>{{ $message }}</x-forms.error>
@@ -34,7 +35,7 @@
 
         <div class="space-y-3 mt-5">
             <x-forms.link link="#">Забыли пароль?</x-forms.link>
-            <x-forms.link link="#">Регистрация</x-forms.link>
+            <x-forms.link link="{{ route('register') }}">Регистрация</x-forms.link>
         </div>
     </div>
 

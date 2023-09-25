@@ -1,9 +1,17 @@
 @props([
+    'text' => '',
     'link',
+    'underline' => false,
 ])
 
 <div class="text-xxs md:text-xs">
-    <a class="text-white hover:text-white/70 font-bold"
+    {{ $text }}
+    <a {{ $attributes
+            ->class([
+                'text-white hover:text-white/70 font-bold',
+                'underline' => $underline
+            ])
+        }}
        href="{{ $link }}"
     >
         {{ $slot }}
