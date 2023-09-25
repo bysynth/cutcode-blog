@@ -3,9 +3,9 @@
 ])
 
 <button
+    type="{{ $type }}"
     {{ $attributes
         ->class(['w-full btn btn-pink'])
-        ->merge(['type' => $type])
     }}
 >
     {{ $slot }}

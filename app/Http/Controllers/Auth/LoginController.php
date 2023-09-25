@@ -7,7 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-class AuthController extends Controller
+class LoginController extends Controller
 {
     public function create(): View
     {
