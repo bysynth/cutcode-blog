@@ -21,10 +21,17 @@
                         >
                             <span class="sr-only">Профиль</span>
 
-                            <img alt="{{ auth()->user()->name }}"
-                                 class="shrink-0 w-10 h-10 rounded-full"
-                                 src="{{ Vite::image('/nav/logo.svg') }}"
-                            >
+                            @unless(auth()->user()->avatar)
+                                <img alt="{{ auth()->user()->name }}"
+                                     class="shrink-0 w-10 h-10 rounded-full"
+                                     src="{{ Vite::image('/nav/logo.svg') }}"
+                                >
+                            @else
+                                <img alt="{{ auth()->user()->name }}"
+                                     class="shrink-0 w-10 h-10 rounded-full"
+                                     src="{{ Storage::url(auth()->user()->avatar) }}"
+                                >
+                            @endunless
 
                             <svg class="shrink-0 w-4 h-4 ml-3" fill="currentColor" viewBox="0 0 30 16"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -41,11 +48,18 @@
                             <h5 class="text-body text-xs">Мой профиль</h5>
 
                             <div class="mt-3">
-                                <a href="#" class="flex items-center">
-                                    <img alt="{{ auth()->user()->name }}"
-                                         class="w-11 h-11 rounded-full"
-                                         src="{{ Vite::image('/nav/logo.svg') }}"
-                                    >
+                                <a href="{{ route('profile.edit') }}" class="flex items-center">
+                                    @unless(auth()->user()->avatar)
+                                        <img alt="{{ auth()->user()->name }}"
+                                             class="shrink-0 w-10 h-10 rounded-full"
+                                             src="{{ Vite::image('/nav/logo.svg') }}"
+                                        >
+                                    @else
+                                        <img alt="{{ auth()->user()->name }}"
+                                             class="shrink-0 w-10 h-10 rounded-full"
+                                             src="{{ Storage::url(auth()->user()->avatar) }}"
+                                        >
+                                    @endunless
                                     <span class="ml-3 text-xs md:text-sm font-bold text-white">
                                         {{ auth()->user()->name }}
                                     </span>
