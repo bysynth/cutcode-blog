@@ -41,7 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])
         ->name('profile.update');
     Route::delete('/profile/delete-avatar', [ProfileController::class, 'deleteAvatar'])
-        ->name('profile.deleteAvatar');
+        ->name('profile.delete-avatar');
+    Route::patch('/profile/update-password', [ProfileController::class, 'updatePassword'])
+        ->name('profile.update-password');
 });
 
 Route::get('/articles', [ArticleController::class, 'index'])

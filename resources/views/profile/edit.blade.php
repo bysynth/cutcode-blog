@@ -78,26 +78,46 @@
                 <x-forms.button>Сохранить</x-forms.button>
 
             </form>
-            <form class="space-y-3" x-show="active === 2">
-                <input class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
-                       type="password"
-                       required=""
-                       autocomplete="current-password"
-                       placeholder="Текущий пароль"
-                >
 
-                <input
-                    class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
-                    type="password" required="" autocomplete="new-password" placeholder="Новый пароль"
-                >
+            <form
+                action="{{ route('profile.update-password') }}"
+                method="POST"
+                class="space-y-3" x-show="active === 2"
+            >
+                @csrf
+                @method('PATCH')
 
-                <input
-                    class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
-                    type="password" required="" autocomplete="new-password" placeholder="Повторите пароль"
-                >
+                <x-forms.input
+                    name="current_password"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="Текущий пароль"
+                    required
+                />
+                @error('current_password')
+                    <x-forms.error>{{ $message }}</x-forms.error>
+                @enderror
 
-                <button class="w-full btn btn-pink" type="submit"> Сменить пароль</button>
+                <x-forms.input
+                    name="password"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="Новый пароль"
+                    required
+                />
+                @error('password')
+                    <x-forms.error>{{ $message }}</x-forms.error>
+                @enderror
 
+                <x-forms.input
+                    name="password_confirmation"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="Повторите пароль"
+                    required
+                />
+
+                <x-forms.button>Сменить пароль</x-forms.button>
             </form>
         </div>
     </div>

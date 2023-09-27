@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Actions\DeleteAvatarAction;
 use App\Actions\SetAvatarAction;
-use App\Http\Requests\UpdateProfileRequest;
+use App\Http\Requests\Profile\UpdatePasswordRequest;
+use App\Http\Requests\Profile\UpdateProfileRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -34,5 +36,16 @@ class ProfileController extends Controller
     public function deleteAvatar(DeleteAvatarAction $action): void
     {
         $action(auth()->user());
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        $newPassword = $request->input('password');
+
+        auth()->user()->update([
+            'password' => Hash::make($newPassword),
+        ]);
+
+        return back()->with('message', 'Пароль успешно изменен');
     }
 }
