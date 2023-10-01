@@ -4,8 +4,8 @@
             <a href="{{ route($menuItem['route']) }}"
                 @class([
                      'ml-4 mr-4',
-                     'text-pink' => $isActive($menuItem['route']),
-                     'text-white hover:text-pink' => !$isActive($menuItem['route']),
+                     'text-pink' => $isActive($menuItem['active']),
+                     'text-white hover:text-pink' => !$isActive($menuItem['active']),
                  ])
             >
                 {{ $menuItem['title'] }}

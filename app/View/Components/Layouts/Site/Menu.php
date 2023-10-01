@@ -17,7 +17,7 @@ class Menu extends Component
 
     public function isActive(string $route): bool
     {
-        return Request::routeIs($route) || Request::routeIs(str_replace('index', '*', $route));
+        return Request::routeIs($route);
     }
 
     public function render(): View

@@ -5,6 +5,7 @@ return [
         [
             'title' => 'Статьи',
             'route' => 'articles.index',
+            'active' => 'articles.*'
         ],
     ],
 ];
