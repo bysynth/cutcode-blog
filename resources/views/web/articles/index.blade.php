@@ -1,4 +1,4 @@
-<x-layouts.site>
+<x-layouts.web>
     <x-slot:title>
         Статьи -
         @if(request()->route('category'))
@@ -25,4 +25,4 @@
 
     {{ $articles->links('web.pagination.tailwind') }}
 
-</x-layouts.site>
+</x-layouts.web>

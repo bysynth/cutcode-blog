@@ -10,7 +10,7 @@
                 </a>
             </div><!-- /.header-logo -->
 
-            <x-layouts.site.menu/>
+            <x-layouts.menu/>
 
             <div class="header-actions flex items-center gap-3 md:gap-5 z-[9999]">
                 @auth()

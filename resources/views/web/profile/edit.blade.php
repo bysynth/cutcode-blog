@@ -1,4 +1,4 @@
-<x-layouts.site>
+<x-layouts.web>
     <x-slot:title>
         Профиль - {{ config('app.name') }}
     </x-slot:title>
@@ -122,4 +122,4 @@
         </div>
     </div>
 
-</x-layouts.site>
+</x-layouts.web>

@@ -1,8 +1,8 @@
-<h1>Dashboard</h1>
+<x-layouts.admin>
+    <x-slot:title>
+        Админка - {{ config('app.name') }}
+    </x-slot:title>
 
-<form action="{{ route('admin.logout') }}" method="POST">
-    @csrf
-    @method('DELETE')
+    <h1 class="text-2xl">Привет, {{ auth('admin')->user()->name }}!</h1>
 
-    <button type="submit">Выйти</button>
-</form>
+</x-layouts.admin>

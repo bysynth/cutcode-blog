@@ -4,7 +4,7 @@
 <x-layouts.common.head :title="$title"/>
 
 <body class="antialiased">
-    <x-layouts.site.header/>
+    <x-layouts.web.header/>
 
     <main class="py-16 lg:py-20">
         <div class="container">
@@ -12,6 +12,6 @@
         </div>
     </main>
 
-    <x-layouts.site.footer/>
+    <x-layouts.web.footer/>
 </body>
 </html>

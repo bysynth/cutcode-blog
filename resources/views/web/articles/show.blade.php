@@ -1,4 +1,4 @@
-<x-layouts.site>
+<x-layouts.web>
     <x-slot:title>
         {{ $article->title }} - {{ config('app.name') }}
     </x-slot:title>
@@ -29,5 +29,5 @@
             </div>
         @endisset
     </div>
-</x-layouts.site>
+</x-layouts.web>
 

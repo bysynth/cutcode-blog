@@ -1,4 +1,4 @@
-<x-layouts.site>
+<x-layouts.web>
     <x-slot:title>
         Главная - {{ config('app.name') }}
     </x-slot:title>
@@ -12,4 +12,4 @@
             <x-articles.item :$article />
         @endforeach
     </div>
-</x-layouts.site>
+</x-layouts.web>

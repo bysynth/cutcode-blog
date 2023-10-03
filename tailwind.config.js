@@ -3,6 +3,7 @@ export default {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
+        "./node_modules/flowbite/**/*.js",
     ],
     darkMode: 'class',
     theme: {
@@ -52,5 +53,6 @@ export default {
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
+        require('flowbite/plugin'),
     ],
 }
