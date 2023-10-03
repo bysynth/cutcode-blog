@@ -8,7 +8,7 @@ class LoginRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return auth()->guest();
+        return auth('web')->guest() || auth('admin')->guest();
     }
 
     public function rules(): array

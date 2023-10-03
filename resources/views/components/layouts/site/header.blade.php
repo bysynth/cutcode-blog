@@ -21,15 +21,15 @@
                         >
                             <span class="sr-only">Профиль</span>
 
-                            @unless(auth()->user()->avatar)
-                                <img alt="{{ auth()->user()->name }}"
+                            @unless(auth('web')->user()->avatar)
+                                <img alt="{{ auth('web')->user()->name }}"
                                      class="shrink-0 w-10 h-10 rounded-full"
                                      src="{{ Vite::image('/nav/logo.svg') }}"
                                 >
                             @else
-                                <img alt="{{ auth()->user()->name }}"
+                                <img alt="{{ auth('web')->user()->name }}"
                                      class="shrink-0 w-10 h-10 rounded-full"
-                                     src="{{ Storage::url(auth()->user()->avatar) }}"
+                                     src="{{ Storage::url(auth('web')->user()->avatar) }}"
                                 >
                             @endunless
 
@@ -49,19 +49,19 @@
 
                             <div class="mt-3">
                                 <a href="{{ route('profile.edit') }}" class="flex items-center">
-                                    @unless(auth()->user()->avatar)
-                                        <img alt="{{ auth()->user()->name }}"
+                                    @unless(auth('web')->user()->avatar)
+                                        <img alt="{{ auth('web')->user()->name }}"
                                              class="shrink-0 w-10 h-10 rounded-full"
                                              src="{{ Vite::image('/nav/logo.svg') }}"
                                         >
                                     @else
-                                        <img alt="{{ auth()->user()->name }}"
+                                        <img alt="{{ auth('web')->user()->name }}"
                                              class="shrink-0 w-10 h-10 rounded-full"
-                                             src="{{ Storage::url(auth()->user()->avatar) }}"
+                                             src="{{ Storage::url(auth('web')->user()->avatar) }}"
                                         >
                                     @endunless
                                     <span class="ml-3 text-xs md:text-sm font-bold text-white">
-                                        {{ auth()->user()->name }}
+                                        {{ auth('web')->user()->name }}
                                     </span>
                                 </a>
                             </div>

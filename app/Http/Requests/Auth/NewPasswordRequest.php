@@ -9,7 +9,7 @@ class NewPasswordRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return auth()->guest();
+        return auth('web')->guest();
     }
 
     public function rules(): array

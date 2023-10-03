@@ -23,6 +23,6 @@
         @endforeach
     </div>
 
-    {{ $articles->links('pagination.tailwind') }}
+    {{ $articles->links('web.pagination.tailwind') }}
 
 </x-layouts.site>

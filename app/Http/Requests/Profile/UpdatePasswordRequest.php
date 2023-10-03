@@ -9,7 +9,7 @@ class UpdatePasswordRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return auth()->check();
+        return auth('web')->check();
     }
 
     public function rules(): array

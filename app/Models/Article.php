@@ -28,7 +28,7 @@ class Article extends Model
 
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Admin::class, 'author_id');
     }
 
     public function categories(): BelongsToMany

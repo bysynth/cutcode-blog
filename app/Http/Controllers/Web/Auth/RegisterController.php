@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Web\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
@@ -24,7 +24,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
 
-        auth()->login($user);
+        auth('web')->login($user);
 
         return to_route('home');
     }

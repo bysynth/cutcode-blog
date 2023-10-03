@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Admin;
 use App\Models\Article;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ArticleFactory extends Factory
@@ -20,7 +20,7 @@ class ArticleFactory extends Factory
             'cover' => fake()->imageUrl(1510, 906),
             'content' => '<p>' . implode('</p><p>',fake()->paragraphs(5)) . '</p>',
             'link' => fake()->url(),
-            'user_id' => User::inRandomOrder()->value('id'),
+            'author_id' => Admin::inRandomOrder()->value('id'),
             'created_at' => $dateTime,
             'updated_at' => $dateTime,
         ];

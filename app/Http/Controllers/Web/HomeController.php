@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
+use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
@@ -14,7 +15,7 @@ class HomeController extends Controller
             return Article::latestWithCategories()->take(6)->get();
         });
 
-        return view('home', [
+        return view('web.home', [
             'articles' => $articles,
         ]);
     }

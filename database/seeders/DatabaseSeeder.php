@@ -3,10 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Admin;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        Admin::create([
+            'name' => 'Super Admin',
+            'email' => 'admin@mail.com',
+            'password' => Hash::make('12345')
+        ]);
+
+        Admin::factory(3)->create();
 
         $categories = Category::factory(5)->create();
 
