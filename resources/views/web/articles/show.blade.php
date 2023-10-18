@@ -3,7 +3,9 @@
         {{ $article->title }} - {{ config('app.name') }}
     </x-slot:title>
 
-    <img class="w-full rounded-xl my-8" src="{{ $article->cover }}" alt="{{ $article->title }}">
+    @isset($article->cover)
+        <img class="w-full rounded-xl my-8" src="{{ Storage::url($article->cover) }}" alt="{{ $article->title }}">
+    @endisset
 
     <div class="prose prose-lg min-w-full prose-img:rounded-xl prose-invert">
         <x-pages.title>

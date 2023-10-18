@@ -1,9 +1,17 @@
 <div class="tasks-card flex flex-col rounded-3xl md:rounded-[40px] bg-card">
     <div class="tasks-card-photo overflow-hidden h-40 xs:h-48 sm:h-[280px] rounded-3xl md:rounded-[40px]">
         <a href="{{ route('articles.show', $article) }}">
-            <img src="{{ $article->cover }}"
-                 class="object-cover w-full h-full"
-                 alt="{{ $article->title }}">
+            @unless($article->cover)
+                <img src="{{ Vite::image('icons/time-forward.svg') }}"
+                     class="w-full h-full"
+                     alt="{{ $article->title }}"
+                >
+            @else
+                <img src="{{ Storage::url($article->cover) }}"
+                     class="object-cover w-full h-full"
+                     alt="{{ $article->title }}"
+                >
+            @endunless
         </a>
     </div>
     <div class="grow flex flex-col pt-6 sm:pt-10 pb-6 sm:pb-10 2xl:pb-14 px-5 sm:px-8 2xl:px-12">

@@ -13,7 +13,7 @@ class LoginController extends Controller
 {
     public function create(): View
     {
-        return view('auth.login', [
+        return view('web.auth.login', [
             'title' => 'Вход в админку',
             'route' => route('admin.login.store'),
             'links' => false,

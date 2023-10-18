@@ -17,7 +17,7 @@ class ArticleFactory extends Factory
         return [
             'title' => ucfirst(fake()->words(3, true)),
             'slug' => fake()->unique()->slug(3),
-            'cover' => fake()->imageUrl(1510, 906),
+            'cover' => 'covers/' . fake()->image(storage_path('app/public/covers'),1510, 906, fullPath: false),
             'content' => '<p>' . implode('</p><p>',fake()->paragraphs(5)) . '</p>',
             'link' => fake()->url(),
             'author_id' => Admin::inRandomOrder()->value('id'),

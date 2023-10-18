@@ -1,4 +1,5 @@
 import './bootstrap';
+import './functions/deleteCover.js';
 import './../css/admin.css';
 
 import 'flowbite';

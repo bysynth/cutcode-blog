@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Web;
 use App\Actions\DeleteAvatarAction;
 use App\Actions\SetAvatarAction;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Profile\UpdatePasswordRequest;
-use App\Http\Requests\Profile\UpdateProfileRequest;
+use App\Http\Requests\Web\Profile\UpdatePasswordRequest;
+use App\Http\Requests\Web\Profile\UpdateProfileRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
@@ -20,13 +20,13 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function update(UpdateProfileRequest $request, SetAvatarAction $action): RedirectResponse
+    public function update(UpdateProfileRequest $request, SetAvatarAction $setAvatarAction): RedirectResponse
     {
         $user = auth('web')->user();
         $data = $request->validated();
 
         if ($request->hasFile('avatar')) {
-            $data['avatar'] = $action($user, $request->file('avatar'));
+            $data['avatar'] = $setAvatarAction($user, $request->file('avatar'));
         }
 
         $user->update($data);
@@ -34,9 +34,9 @@ class ProfileController extends Controller
         return back()->with('message', 'Данные профиля обновлены');
     }
 
-    public function deleteAvatar(DeleteAvatarAction $action): void
+    public function deleteAvatar(DeleteAvatarAction $deleteAvatarAction): void
     {
-        $action(auth('web')->user());
+        $deleteAvatarAction(auth('web')->user());
     }
 
     public function updatePassword(UpdatePasswordRequest $request)

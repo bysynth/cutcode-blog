@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\ArticleCreatedEvent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +19,7 @@ class Article extends Model
         'cover',
         'content',
         'link',
-        'user_id',
+        'author_id',
     ];
 
     public function scopeLatestWithCategories(Builder $query): Builder

@@ -4,34 +4,32 @@
     </x-slot:title>
 
     <div class="max-w-[640px] mt-12 mx-auto p-6 xs:p-8 md:p-12 2xl:p-16 rounded-[20px] bg-purple">
+
+        <x-flash.auth :status="session('status')"/>
+
         <h1 class="mb-5 text-lg font-semibold">{{ $title }}</h1>
 
-        <form class="space-y-3" action="{{ $route }}" method="POST">
-            @csrf
+        <x-forms.form :action="$route">
 
             <x-forms.input
                 name="email"
-                type="email"
-                value="{{ old('email') }}"
-                autocomplete="email"
                 placeholder="E-mail"
+                autocomplete="email"
                 required
                 autofocus
             />
-            @error('email')
-                <x-forms.error>{{ $message }}</x-forms.error>
-            @enderror
 
             <x-forms.input
-                name="password"
                 type="password"
-                autocomplete="current-password"
+                name="password"
                 placeholder="Пароль"
+                autocomplete="current-password"
                 required
             />
 
             <x-forms.button>Войти</x-forms.button>
-        </form>
+
+        </x-forms.form>
 
         @if($links)
             <div class="space-y-3 mt-5">

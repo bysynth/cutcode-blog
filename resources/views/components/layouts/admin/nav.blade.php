@@ -54,7 +54,7 @@
                 @unless(auth('admin')->user()->avatar)
                     <img alt="{{ auth('admin')->user()->name }}"
                          class="w-8 h-8 rounded-full"
-                         src="{{ Vite::image('/nav/logo.svg') }}"
+                         src="{{ Vite::image('nav/logo.svg') }}"
                     >
                 @else
                     <img alt="{{ auth('admin')->user()->name }}"

@@ -11,10 +11,9 @@ class LoginAction
         string $guard = 'web',
         string $redirectToRoute = 'home'
     ): RedirectResponse {
-
         if (!auth($guard)->attempt($credentials)) {
             return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.'
+                'email' => __('auth.failed')
             ])->onlyInput('email');
         }
 

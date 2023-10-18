@@ -24,7 +24,7 @@
                             @unless(auth('web')->user()->avatar)
                                 <img alt="{{ auth('web')->user()->name }}"
                                      class="shrink-0 w-10 h-10 rounded-full"
-                                     src="{{ Vite::image('/nav/logo.svg') }}"
+                                     src="{{ Vite::image('nav/logo.svg') }}"
                                 >
                             @else
                                 <img alt="{{ auth('web')->user()->name }}"
@@ -52,7 +52,7 @@
                                     @unless(auth('web')->user()->avatar)
                                         <img alt="{{ auth('web')->user()->name }}"
                                              class="shrink-0 w-10 h-10 rounded-full"
-                                             src="{{ Vite::image('/nav/logo.svg') }}"
+                                             src="{{ Vite::image('nav/logo.svg') }}"
                                         >
                                     @else
                                         <img alt="{{ auth('web')->user()->name }}"

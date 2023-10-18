@@ -27,7 +27,7 @@
                             @unless($user->avatar)
                                 <img
                                     id="avatarPreview"
-                                    src="{{ Vite::image('/nav/logo.svg') }}"
+                                    src="{{ Vite::image('nav/logo.svg') }}"
                                     alt="{{ $user->name }}"
                                     class="rounded-full h-20 w-20 object-cover"
                                 >

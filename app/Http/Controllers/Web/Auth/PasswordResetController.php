@@ -12,7 +12,7 @@ class PasswordResetController extends Controller
 {
     public function create(): View
     {
-        return view('auth.forgot-password');
+        return view('web.auth.forgot-password');
     }
 
     public function store(PasswordResetRequest $request): RedirectResponse
